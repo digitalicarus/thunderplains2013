@@ -9,6 +9,7 @@ define([
 	var ret = {}
 	,   $main = $('main')
 	,   $header = $('header')
+	,   $footer = $('footer')
 	,   $primaryContainer = $('.container.primary')
 	,   $contentContainer = $('main').find('.container')
 	,   $gameframe = $('iframe.game')
@@ -22,7 +23,10 @@ define([
 	};
 
 	ret.resize = function () {
-		$main.height($primaryContainer.outerHeight() - $header.outerHeight());
+		var priHeight = parseInt($primaryContainer.height(), 10)
+		,   headerHeight = parseInt($header.height(), 10)
+		;
+		$main.height($primaryContainer.height() - $header.height() - $footer.height());
 	};
 	ret.minimize = function () {
 		$primaryContainer.addClass('minimized');

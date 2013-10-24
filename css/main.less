@@ -7,16 +7,26 @@ html, body {
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
+	-webkit-font-smoothing: none;
+	font-family: "Tahoma", Geneva, Verdana;
 }
 *, *:before, *:after {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
+main, footer {
+	font-family: Arial;
+}
+
+.clearfix {
+	clear: both;
+	font-size: 0;
+}
 
 .win95Button() {
-	height:1.3em;
-	width: 1.3em;
+	height:1.5em;
+	width: 1.5em;
 
 	font-weight: 700;
 
@@ -25,26 +35,13 @@ html, body {
 	border-width: 2px;
 
 	background-color: #ddd;
-	background-size: .7em;
+	background-size: .9em;
 	background-repeat: no-repeat;
 	background-position: center center; 
+
+	outline: none;
 }
 
-header  {
-	font-family: "Tahoma", Geneva, Verdana;
-	background: #170c8c; /* Old browsers */
-	background: -moz-linear-gradient(left,  #170c8c 0%, #0047b0 50%, #0388d4 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#170c8c), color-stop(50%,#0047b0), color-stop(100%,#0388d4)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* IE10+ */
-	background: linear-gradient(to right,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#170c8c', endColorstr='#0388d4',GradientType=1 ); /* IE6-9 */
-
-	color: white;
-	margin: 1px;
-	border: 1px solid #ddd;
-}
 .container {
 	z-index: 20;
 	border: 2px outset #ccc;
@@ -60,40 +57,34 @@ header  {
 
 	&.minimized {
 		width: 20em;
-		height: 2.1em;
+		height: 2.4em;
 	}
 }
-main {
-	overflow: auto;
-	margin: 3px;
-	border-color: #666 #eee #eee #999;
-	border-width: 2px 1px 1px 2px;
-	border-style: solid;
 
-}
+header  {
+	background: #170c8c; /* Old browsers */
+	background: -moz-linear-gradient(left,  #170c8c 0%, #0047b0 50%, #0388d4 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#170c8c), color-stop(50%,#0047b0), color-stop(100%,#0388d4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* IE10+ */
+	background: linear-gradient(to right,  #170c8c 0%,#0047b0 50%,#0388d4 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#170c8c', endColorstr='#0388d4',GradientType=1 ); /* IE6-9 */
 
-.scrollbar {
-	position: absolute;
-	height: 100%;
-	top: 0;
-	right: 0;
-	background-color: red;
-	button {
-		.win95Button();
-	}
-}
-header {
-
+	color: white;
+	margin: 1px;
+	border: 1px solid #ddd;
+   
 	h1, fieldset {
 		display: inline-block;
-		height:1.6em;
-		line-height: 1.2em;
+		height:1.8em;
+		line-height: 1.3em;
 		margin:0;
 		padding: .3em 0;
 	}
 
 	h1 {
-		font-size: .9em;
+		font-size: 1em;
 		float: left;
 		width: 60%;
 		padding-left: 1.5em;
@@ -106,7 +97,7 @@ header {
 
 	fieldset {
 		float: right;
-		width: 5em;
+		width: 6em;
 		text-align: right;
 		border: none;
 		padding: 2px;
@@ -119,37 +110,74 @@ header {
 			float: right;
 
 			.win95Button();
-//			height:1.3em;
-//			width: 1.3em;
-//
-//			font-weight: 700;
-//
-//			border-color: white #bbb #bbb white;
-//			.border-radius(0);
-//			border-width: 2px;
-//
-//			background-color: #ddd;
-//			background-size: .7em;
-//			background-repeat: no-repeat;
-//			background-position: center center;
 		}
+	}  
+}
+
+main {
+	overflow: auto;
+	margin: 3px;
+	padding: 0 0 5% 0;
+	border-color: #666 #eee #eee #999;
+	border-width: 2px 1px 1px 2px;
+	border-style: solid;
+
+
+	section {
+		font-family: arial;
+		background: white;
+		width: 80%;
+		min-height: 90%;
+		margin: 5% auto 0 auto;
+		border: 1px solid black;
+		box-shadow: 10px 10px 0 black;
+		padding: 1em;
+
+		position: relative;
+
+		h1, h2, h3 {
+			font-size: 2em;
+			font-family: fantasy;
+		}
+
+		&>h2 {
+			color: #666;
+			position: absolute;
+			bottom: 0;
+			right: 1em;
+			font-size: 1.5em;
+		}
+
+		h1 {
+			font-size: 3em;
+			text-align: center;
+			font-family: fantasy;
+			height: 100%;
+		}
+
+		p, p * {
+			font-size: 1.5em;
+		}
+
 	}
 }
 
-.clearfix {
-	clear: both;
-	font-size: 0;
+footer {
+	padding: 0 3px;
+	height: 3em;
+	line-height: 2em; 		 
+
+	section {
+		font-size: 0.9em;
+		border: 2px solid #ddd;
+		display: inline-block;
+		height: 1.8em;
+		line-height: 1.8em;
+		text-align: center;
+		width: 33%;
+	}
 }
 
-section {
-	font-family: arial;
-	background: white;
-	width: 80%;
-	height: 90%;
-	margin: 5% auto;
-	border: 1px solid black;
-	box-shadow: 10px 10px 0 black;
-}
 
 iframe.game {
 	position: absolute;

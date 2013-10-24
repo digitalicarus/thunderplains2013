@@ -13,14 +13,14 @@ define([
 
 
 	$(window).on('resize', Shared.resize);
-	$main.mCustomScrollbar({
-		mouseWheel: true,
-		verticalScroll: true,
-		scrollInertia: 0,
-		scrollButtons: {
-			enable: true
-		}
-	});
+//	$main.mCustomScrollbar({
+//		mouseWheel: true,
+//		verticalScroll: true,
+//		scrollInertia: 0,
+//		scrollButtons: {
+//			enable: true
+//		}
+//	});
 
 	$('button.bg-minimize').on('click', Shared.minimize);
 	$('button.bg-maximize').on('click', Shared.maximize);
