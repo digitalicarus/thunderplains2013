@@ -5,6 +5,7 @@ require.config({
 	paths: {
 		backbone:       'vendor/backbone-min',
 		underscore:     'vendor/underscore-min',
+		prism:          'vendor/prism',
 		jquery:         'vendor/jquery-2.0.3.min',
 		matchmedia:     'vendor/matchMedia',
 		fastclick:      'vendor/fastclick',
@@ -36,6 +37,9 @@ require.config({
 				return this.Backbone.noConflict();
 			}
 		},
+		prism: {
+			exports: 'Prism'
+		},
 		dot: {
 			exports: 'doT'
 		},
@@ -51,17 +55,15 @@ require.config({
 		hammerjq: {
 			deps: ['jquery']
 		},
-		jqcustomscroll: {
-			deps: ['jquery']
-		},
 		scrollto: {
 			deps: ['jquery']
 		}
 	}
 });
 
-define(['jqcustomscroll'], function () {
+define(['prism'], function (prism) {
 	"use strict";
+	prism.highlightAll();
 	require(['app'], function (app) {});
 });
 

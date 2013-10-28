@@ -1,5 +1,6 @@
 @import "vendor/normalize";
-@import "vendor/jquery.mCustomScrollbar";
+//@import "vendor/jquery.mCustomScrollbar";
+@import "vendor/prism";
 @import "vars";
 @import "mixins";
 
@@ -8,20 +9,32 @@ html, body {
 	margin: 0;
 	overflow: hidden;
 	-webkit-font-smoothing: none;
-	font-family: "Tahoma", Geneva, Verdana;
 }
 *, *:before, *:after {
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-family: "Tahoma", Geneva, Verdana;
 }
 main, footer {
 	font-family: Arial;
 }
 
+img {
+	vertical-align: middle;
+}
+
+notes {
+	display: none;
+}
 .clearfix {
 	clear: both;
 	font-size: 0;
+}
+
+*[data-framesrc] {
+	cursor: pointer;
 }
 
 .win95Button() {
@@ -115,44 +128,75 @@ header  {
 }
 
 main {
-	overflow: auto;
+	font-size: 1em;
+	overflow-y: auto;
+	overflow-x: hidden;
 	margin: 3px;
 	padding: 0 0 5% 0;
+	//padding: 0;
 	border-color: #666 #eee #eee #999;
 	border-width: 2px 1px 1px 2px;
 	border-style: solid;
 
+	.slideContainer {
+		.transform-origin(~'50% 0%');
+		padding-bottom: 25px;
+	}
 
 	section {
 		font-family: arial;
 		background: white;
-		width: 80%;
-		min-height: 90%;
-		margin: 5% auto 0 auto;
+		//width: 80%;
+		//min-height: 90%;
+		width: 640px;
+		height: 480px;
+		//margin: 0px auto 20px auto;
+		margin: 50px auto;
 		border: 1px solid black;
 		box-shadow: 10px 10px 0 black;
 		padding: 1em;
+		overflow: hidden;
+		.transform-origin(~'50% 50%');
+
+		&:nth-child(1) {
+			margin: 25px auto 50px auto;
+		}
+
+		blockquote {
+			font-size: .80em;
+			font-family: Verdana;
+
+			color: #666;
+
+			q {
+				color: #000;
+				display: block;
+				margin: 0 0 8px 0;
+			}
+		}
 
 		position: relative;
 
 		h1, h2, h3 {
 			font-size: 2em;
-			font-family: fantasy;
+			font-family: "Tinos", "EB Garamond", serif;
+			font-weight: 200;
+			margin: 0;
 		}
 
 		&>h2 {
+			font-family: sans-serif;
 			color: #666;
 			position: absolute;
-			bottom: 0;
+			bottom: 0.5em;
 			right: 1em;
-			font-size: 1.5em;
+			font-size: 1.2em;
 		}
+
 
 		h1 {
 			font-size: 3em;
 			text-align: center;
-			font-family: fantasy;
-			height: 100%;
 		}
 
 		p, p * {
